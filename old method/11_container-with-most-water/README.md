@@ -9,6 +9,7 @@ Return the maximum amount of water a container can store.
 Notice that you may not slant the container.
 
 ## Example 1
+
 ![image](./Screenshot%202024-03-22%20at%2009.48.32.png)
 
 Input: height = [1,8,6,2,5,4,8,3,7]
