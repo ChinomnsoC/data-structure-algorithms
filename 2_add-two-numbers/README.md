@@ -1,33 +1,28 @@
 # Question
 
-Given two strings s and t of lengths m and n respectively, return the minimum window 
-substring
- of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
-The testcases will be generated such that the answer is unique.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
 ## Example 1
 
-Input: s = "ADOBECODEBANC", t = "ABC"
-Output: "BANC"
-Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
 
 ## Example 2
 
-Input: s = "a", t = "a"
-Output: "a"
-Explanation: The entire string s is the minimum window.
+Input: l1 = [0], l2 = [0]
+Output: [0]
+
 
 ## Example 3
 
-Input: s = "a", t = "aa"
-Output: ""
-Explanation: Both 'a's from t must be included in the window.
-Since the largest window of s only has one 'a', return empty string.
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
 
 Constraints:
 
-- m == s.length
-- n == t.length
-- 1 <= m, n <= 105
-- s and t consist of uppercase and lowercase English letters
+- The number of nodes in each linked list is in the range [1, 100].
+- 0 <= Node.val <= 9
+- It is guaranteed that the list represents a number that does not have leading zeros.
