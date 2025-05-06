@@ -1,4 +1,4 @@
-# Statement
+## Statement
 
 Given a string, s, return TRUE if it is a palindrome; otherwise, return FALSE.
 
@@ -16,3 +16,22 @@ Constraints:
 
 s consists only of printable ASCII characters.
 
+## Problem: 3Sum
+
+Given an integer array nums, find and return all unique triplets [nums[i], nums[j], nums[k]], where the indexes satisfy i ≠
+
+=
+j, i
+≠
+
+=
+k, and j
+≠
+
+=
+k, and the sum of the elements nums[i] + nums[j] + nums[k] == 0.
+
+Constraints:
+
+- 3≤ nums.length ≤ 500
+- -10 ≤ nums[i] ≤ 10^3

@@ -27,6 +27,7 @@ def remove_nth_last_node(head, n):
 
     # Step 2: Move the 'right' pointer n steps ahead
     for i in range(n):
+        print(range(n))
         if right:
             print(f"Moving right pointer to step {i+1}: at node {right.value}")
             right = right.next
@@ -70,7 +71,7 @@ def create_linked_list(values):
 head = create_linked_list([3, 4, 8, 23, 5, 88, 9, 45])
 
 # Call function to remove 2nd node from the end (which is 4)
-updated_head = remove_nth_last_node(head, 2)
+updated_head = remove_nth_last_node(head, 9)
 
 # Final output
 print("\nFinal linked list:")
