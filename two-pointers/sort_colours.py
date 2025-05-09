@@ -1,41 +1,43 @@
 def sort_colors(colors):
     n = len(colors)
+    low, mid, high = 0, 0, n-1
     
-    left, right = 0, n-1
-    
-    
-    while left < right:
-        if colors[left] == colors[left + 1]:
-            continue
-        # colors[left] - colors[left + 1]
-        if (colors[left] > colors[left + 1]) and colors[left] - colors[left + 1] == 1:
-            print(f"colors[left]: {colors[left]} is bigger than colors[left + 1]: {colors[left + 1]} ")
-            position_of_left_plus_1 = left + 1
-            colors.insert(0, colors.pop(position_of_left_plus_1))
-            left += 1
-            right -= 1
+    # starting list = [2,1,1,0,0]
+    # colors[low] = 2
+    # colors[mid] = 2
+    # colors[high] = 0
+    while mid <= high:
+        if colors[mid] == 0:
+            # 0, 0 = 0, 0
+            colors[low], colors[mid] = colors[mid], colors[low]
+            low += 1
+            mid += 1
+            # now colors[low] = 1 and colors[mid] = 1
+            # second_iteration_results = [0, 1, 1, 0, 2]
+            # fifth_iteration_results = [0, 0, 1, 1, 2]
+            # for the 5th iteration, colors[low] = 1 on position  and colors[mid] = 2 on position 4
+        elif colors[mid] == 1:
+            mid += 1
+            # now colors[low] = 1 on position 1 and colors[mid] = 1 on position 2
+            # third_iteration_results = [0, 1, 1, 0, 2]
+            # for the 4th iteration, colors[low] = 1 on position 1 and colors[mid] = 0 on position 3
+        else:
+            # 2, 0 = 0, 2
+            # first_iteration_results = [0, 1, 1, 0, 2]
+            colors[mid], colors[high] = colors[high], colors[mid]
+            high -= 1 # n-2 = position 3
+            # colors[low] = 0
+            # colors[mid] = 0
+            # colors[high] = 0
+            
         
-        elif (colors[left] > colors[left + 1]) and colors[left] - colors[left + 1] == 2:
-            print(f"colors[left]: {colors[left]} is bigger than colors[left + 1]: {colors[left + 1]} ")
-            colors.insert(n-1, colors.pop(left))
-            print(colors)
-            
-            
-  
-        left += 1
-        right -= 1
-        print("new colors:", colors)
-            
-        # check for duplicates
-        # check that i and i + 1 are the same, otherwise, the difference between the value at i and i+1 should be 1, and colors[i] < colors[i + 1]
-        # if it is 2, then colors[i + 1] should move to the end of the list.
-        # if the difference is one, but colors[i] > colors[i + 1] and colors[i + 1] is 0, then colors[i + 1] should move to the beginning of the list
     return colors
 
 
-colours_list = [0,1,0]
+colours_list = [0, 1, 0]
 
 output_of_3sum = sort_colors(colours_list)
 
 # Final output
 print("\nSorted colors list:", output_of_3sum)
+
