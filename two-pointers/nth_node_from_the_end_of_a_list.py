@@ -7,6 +7,7 @@ class ListNode:
     def __str__(self):
         return str(self.value)
 
+
 # Helper function to print the entire linked list
 def print_list(head):
     current = head
@@ -14,6 +15,7 @@ def print_list(head):
         print(current.value, end=" -> ")
         current = current.next
     print("None")
+
 
 # Function to remove the nth node from the end of the list
 def remove_nth_last_node(head, n):
@@ -34,7 +36,9 @@ def remove_nth_last_node(head, n):
 
     # Step 3: If right is None after moving n steps, we are deleting the head
     if not right:
-        print(f"After moving {n} steps, right is None. Removing head node {head.value}.")
+        print(
+            f"After moving {n} steps, right is None. Removing head node {head.value}."
+        )
         return head.next  # Remove the head node
 
     # Step 4: Move both pointers until right reaches the end
@@ -45,7 +49,7 @@ def remove_nth_last_node(head, n):
         print(right, left)
 
     print(f"Node to be removed: {left.next.value}")
-    
+
     # Step 5: Skip the target node
     left.next = left.next.next
 
@@ -53,6 +57,7 @@ def remove_nth_last_node(head, n):
     print_list(head)
 
     return head
+
 
 # Helper function to create a linked list from a list of values
 def create_linked_list(values):
@@ -62,6 +67,7 @@ def create_linked_list(values):
         current.next = ListNode(val)
         current = current.next
     return dummy.next
+
 
 # --------------------------
 # Example usage
