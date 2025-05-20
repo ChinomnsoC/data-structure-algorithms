@@ -12,6 +12,7 @@ def findRepeatedDnaSequences(s):
             duplicates.add(window)
         else:
             seen_sequence.add(window)
+    print(list(duplicates))
     return list(duplicates)
 
 # The method below is not as optimal as the one above
@@ -38,5 +39,5 @@ def findRepeatedDnaSequences(s):
 #     return list_of_strings
     
 
-sample = "GTACGTACGTACGCCCCCCCCGGGGG"
+sample = "ACGTACGTACGGGTTACGTACGTAC"
 findRepeatedDnaSequences(sample)
