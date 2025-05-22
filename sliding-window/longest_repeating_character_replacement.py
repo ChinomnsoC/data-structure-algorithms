@@ -15,9 +15,12 @@ def longest_repeating_character_replacement(s, k):
         character_freq[s[right]] += 1
         print(character_freq)
         max_frequency = max(max_frequency, character_freq[s[right]])
+        print(max_frequency, character_freq[s[right]])
 
         window_size = right - left + 1
+        print(window_size)
         character_to_change = window_size - max_frequency
+        print(character_to_change)
 
         if character_to_change > k:
             character_freq[s[left]] -= 1
