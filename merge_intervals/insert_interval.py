@@ -1,4 +1,37 @@
+# ___A better solution____
+
 def insert_interval(existing_intervals, new_interval):
+  i = 0
+  n = len(existing_intervals)
+  output_list = []
+  # existing_interval is less than new interval, append the existing_interval to the output_list
+  # increase i counter
+  while i < n and existing_intervals[i][0] < new_interval[0]:
+    output_list.append(existing_intervals[i])
+    i +=1
+  # Here we check that the new_interval doesn't overlap, and if it doesn't, 
+  # we append it to the output_list
+  if not output_list or output_list[-1][1] < new_interval[0]:
+    output_list.append(new_interval)
+  # if there is an overlap, we merge
+  else:
+    output_list[-1] = [min(new_interval + output_list[-1]), max(new_interval + output_list[-1])]
+  # once we've successfully added the new_interval to the output_list, we handle the rest of the existing_intervals
+  while i < n:
+    # we check that the next interval in existing_intervals doesn't overlap with the last item in output_list
+    if existing_intervals[i][0] <= output_list[-1][1]:
+      # if there's an overlap, we merge with the last item in output_list
+      output_list[-1][1] = max(existing_intervals[i][1], output_list[-1][1])
+    else:
+      # if there's no overlap, append the current interval
+      output_list.append(existing_intervals[i])
+    # increase counter so that we move forward in life
+    i += 1
+
+  return output_list
+
+# Initial Solution
+def insert_interval_second_solution(existing_intervals, new_interval):
 
     # Iterate through all intervals.
     # If current interval ends before new_interval starts → append it to output.
@@ -28,8 +61,6 @@ def insert_interval(existing_intervals, new_interval):
     if not inserted:
         output_list.append(new_interval)
         print(output_list)
-        
-
 
 
     return output_list
