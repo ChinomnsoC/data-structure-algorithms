@@ -9,7 +9,7 @@ def find_closest_elements(nums, k, target):
         return nums[:k]
     elif target > nums[n - 1]:
         print(nums[k - 1 :])
-        return nums[k - 1 :]
+        return nums[len(nums)-k : len(nums)]
 
     # If the length of nums is exactly k, return the entire list. If the target is smaller than the smallest element or larger than the largest, return either the first or last k elements.
     # Use binary search to locate the index of the element closest to the target.
