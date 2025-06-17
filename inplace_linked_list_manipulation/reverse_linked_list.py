@@ -1,10 +1,4 @@
-# Definition for a Linked List node
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-from LinkedList import ListNode
-# from ds_v1.LinkedList.LinkedList import ListNode
+from LinkedList import LinkedList
 
 def reverse(head):
     prev, next = None, None
@@ -18,3 +12,13 @@ def reverse(head):
         
     head = prev
     return head
+
+
+print("Test Case 1: [1,2,3,4,5]")
+ll1 = LinkedList([1, 2, 3, 4, 5])
+print(f"Original: {ll1}")
+
+# Reverse the linked list
+ll1.head = reverse(ll1.head)
+print(f"Reversed: {ll1}")
+print("Expected: [5, 4, 3, 2, 1]\n")

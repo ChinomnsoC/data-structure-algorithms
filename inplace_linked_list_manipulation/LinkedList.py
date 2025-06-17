@@ -1,26 +1,46 @@
-from ListNode import ListNode
+class ListNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
 class LinkedList:
     def __init__(self, values=None):
         self.head = None
+        
+        # If values provided, create the linked list
         if values:
-            self.create_linked_list(values)
-
-    def create_linked_list(self, values):
-        if not values:
-            self.head = None
-            return
-
-        self.head = ListNode(values[0])
-        current = self.head
-        for value in values[1:]:
-            current.next = ListNode(value)
-            current = current.next
-
+            for value in values:
+                self.append(value)
     
-def display(head):
-    current = head
-    while current:
-        print(current.val, end=" -> ")
-        current = current.next
-    print("None")
+    def append(self, data):
+        """Add a new node at the end"""
+        new_node = ListNode(data)
+        
+        if not self.head:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+    
+    def __str__(self):
+        """Return string representation like [2,1,4,3,5]"""
+        result = []
+        current = self.head
+        while current:
+            result.append(current.data)
+            current = current.next
+        return str(result)
+
+# Example usage:
+if __name__ == "__main__":
+    # Create a linked list from a regular list
+    ll = LinkedList([2, 1, 4, 3, 5])
+    print(ll)  # Output: [2, 1, 4, 3, 5]
+    
+    # Create empty and add elements
+    ll2 = LinkedList()
+    ll2.append(10)
+    ll2.append(20)
+    print(ll2)  # Output: [10, 20]
