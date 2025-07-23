@@ -20,6 +20,7 @@ def reorder_list(head):
         curr.next = prev
         prev = curr
         curr = next_node
+
     
     # then we set the head to be the first, and the second to be the last  
     first, second = head, prev

@@ -54,3 +54,31 @@ Constraints:
 
 Example:
 ![image](./Screenshot%2025-05-07%at%08.06.34.png)
+
+## Problem: Maximum Array of a Contiguous Subarray
+
+Given an array of integers nums, and an integer k, return the maximum average of a contiguous subarray of length k.
+
+Constraints:
+1 ≤ k ≤ nums.length ≤ 10^5
+-10^4 ≤ nums[i] ≤ 10^4
+
+Example:
+Input: nums = [1,12,-5,-6,50,3], k = 4
+Expected Output: 12.75
+Explanation: The subarray [12,-5,-6,50] has the maximum average of 12.75.
+
+Please implement a Python method to solve this problem.
+
+## Problem: Sort Colors
+
+
+You are given a string, sentence, comprising words and leading or trailing spaces or multiple spaces between words. Your task is to reverse the order of its words without affecting the order of letters within the given word. Return the modified sentence.
+Note: A word is defined as a continuous sequence of non-space characters. Multiple words separated by single spaces form a valid English sentence. Therefore, ensure there is only a single space between any two words in the returned string, with no leading, trailing, or extra spaces.
+Constraints:
+
+* The sentence contains English uppercase and lowercase letters, digits, and spaces.
+* There is at least one word in sentence.
+* 1 ≤ sentence.length ≤ 10^4
+Example: Input: " hello world! " Expected Output: “world! hello”
+Please implement your solution in Python.
