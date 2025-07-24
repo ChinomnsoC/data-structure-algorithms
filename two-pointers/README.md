@@ -55,7 +55,7 @@ Constraints:
 Example:
 ![image](./Screenshot%2025-05-07%at%08.06.34.png)
 
-## Problem: Maximum Array of a Contiguous Subarray
+## Problem: Maximum Average of a Contiguous Subarray
 
 Given an array of integers nums, and an integer k, return the maximum average of a contiguous subarray of length k.
 
