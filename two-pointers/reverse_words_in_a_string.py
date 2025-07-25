@@ -27,9 +27,25 @@ def reverse_words(sentence):
             left -= 1
         
         word = sentence[left + 1:right + 1]
+        print("word please", word)
         result.append(word)
     
     return ' '.join(result)
+
+# Another method that doesn't use two pointers too much.
+# def reverse_words(sentence):
+    # cleaned_sentence = sentence.split()
+    # print(cleaned_sentence)
+    # n = len(cleaned_sentence)
+    
+    # left, right = 0, n-1
+    # while left < right:
+    #     cleaned_sentence[left], cleaned_sentence[right] = cleaned_sentence[right], cleaned_sentence[left]
+    #     print("cleaned_sentence", cleaned_sentence)
+    #     left += 1
+    #     right -= 1
+        
+    # return " ".join(cleaned_sentence)
         
 # Test the solutions
 def test_reverse_words():

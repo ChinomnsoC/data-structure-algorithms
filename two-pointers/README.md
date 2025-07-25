@@ -81,3 +81,33 @@ Constraints:
 * 1 ≤ sentence.length ≤ 10^4
 Example: Input: " hello world! " Expected Output: “world! hello”
 Please implement your solution in Python.
+
+## Problem: Max Number of Fruits
+
+While visiting a farm of fruits, you are given a row of fruits represented by an integer array, fruits, where fruits[i] is the type of fruit the i-th tree produces.
+
+You have to collect fruits, but you must follow these rules:
+
+You are given only two baskets, each able to hold an unlimited quantity of one fruit type.
+You can start collecting from any tree, but must collect exactly one fruit from each tree moving to the right.
+You must stop once you encounter a tree whose fruit type cannot fit into your baskets.
+Return the maximum number of fruits you can collect following these rules.
+
+Constraints: 1 ≤ fruits.length ≤ 10³
+0 ≤ fruits[i] < fruits.length
+
+Examples:
+
+Input: fruits = [1,2,1]
+Output: 3
+Explanation: Window [1,2,1] uses only fruit types 1 and 2.
+
+Input: fruits = [0,1,2,2]
+Output: 3
+Explanation: Window [1,2,2] uses only fruit types 1 and 2.
+
+Input: fruits = [1,2,3,2,2]
+Output: 4
+Explanation: Window [2,3,2,2] uses fruit types 2 and 3.
+
+Please provide your Python solution for this problem.
