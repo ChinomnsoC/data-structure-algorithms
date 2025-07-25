@@ -111,3 +111,30 @@ Output: 4
 Explanation: Window [2,3,2,2] uses fruit types 2 and 3.
 
 Please provide your Python solution for this problem.
+
+## Valid Word Abbreviation
+
+Try to solve the Valid Word Abbreviation problem.
+
+Statement
+Given a string, word, and abbreviation, abbr, return TRUE if the abbreviation matches the given string. Otherwise, return FALSE. An abbreviation can replace any non-adjacent, non-empty substrings of the original word with their lengths. Replacement lengths must not contain leading zeros.
+
+A certain word, "calendar", can be abbreviated as follows:
+
+- "cal3ar" ("cal + end [length = 3] + ar" skipping three characters "end" from the word "calendar" still matches the provided abbreviation)
+- "c6r" ("c + alenda [length = 6] + r" skipping six characters "alenda" from the word "calendar" still matches the provided abbreviation)
+- The word "internationalization" can also be abbreviated as "i18n" (the abbreviation comes from skipping 18 characters in "internationalization" leaving the first and last letters "i" and "n").
+
+The following are not valid abbreviations:
+
+- "c06r" (Has leading zeroes)
+- "cale0ndar" (Replaces an empty string)
+- "c24r" ("c al enda r" the replaced substrings are adjacent)
+
+Constraints:
+
+- 1 ≤ word.length ≤ 20
+- The word consists of only lowercase English letters.
+- 1 ≤ abbr.length ≤ 10
+- abbr consists of lowercase English letters and digits.
+- All the integers in abbr will fit in a 32–bit integer.
