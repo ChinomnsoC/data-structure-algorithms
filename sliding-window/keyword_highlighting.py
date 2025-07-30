@@ -6,6 +6,56 @@
 # Input: keyword = "ana", text = "banana"
 # Output: "b<b>anana</b>"  
 # // NOT "b<b>ana</b>na" - we want to bold the maximum coverage
+class KeywordHighlighter:
+    def __init__(self, keyword):
+        self.keyword = keyword
+    
+    def highlight_keywords(self, text: str):
+        
+        matches = self.find_matches(text=text)
+        merged_intervals = self.merge_intervals_in_matches(matches=matches)
+        
+        result = ""
+        lastIndex = 0
+        
+        for start, end in merged_intervals:
+            result += text[lastIndex:start]
+            print("result 1 and lastIndex 1", result, lastIndex)
+            result += f"<b>{text[start:end + 1]}</b>"
+            print("result 2 and lastIndex 2", result, lastIndex)
+            lastIndex = end + 1
+            print("result 3 and lastIndex 3", result, lastIndex)
+        
+        
+        print("merged intervals", merged_intervals)
+        return result
+        
+        
+    def find_matches(self, text: str):
+        matches = []
+    
+        for i in range(len(text) - len(self.keyword)+1):
+            print("checking")
+            if text[i:i + len(self.keyword)] == self.keyword:
+                matches.append((i, i + len(self.keyword)-1))
+                print(matches)
+        if not matches:
+            return text
+        
+        return matches
+    
+    def merge_intervals_in_matches(self, matches):
+        merged_intervals = [matches[0]]
+        
+        for match in matches[1:]:
+            if match[0] <= merged_intervals[-1][1]:
+                merged = [min(match[0], merged_intervals[-1][0]), max(match[1], merged_intervals[-1][1])]
+                merged_intervals[-1] = merged
+            else:
+                merged_intervals.append(match)
+
+        return merged_intervals
+    
 
 
 def find_matches(keyword: str, text: str):
@@ -47,15 +97,6 @@ def find_matches(keyword: str, text: str):
     return result
                     
                     
-print(find_matches("ana", "bananaavocadoana"))
-
-    
-# def merge_intervals(self, interval, last_interval_in_matches):
-#     merged_intervals = [min(interval + last_interval_in_matches), max(interval + last_interval_in_matches)]
-#     return merged_intervals
-    # # [[1, 3], [3, 5]]
-
-    # for match in matches[1:]:
-    #     if match[0] <= matches[-1][1]:
-    #         # merge intervals
-    #     return
+# print(find_matches("ana", "bananaavocadoana"))
+highlight = KeywordHighlighter(keyword="ana")
+print(highlight.highlight_keywords(text="bananaavocadoana"))
