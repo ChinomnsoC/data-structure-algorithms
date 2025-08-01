@@ -23,6 +23,8 @@ class RelationshipManager:
     
         for employee, manager in relationships:
             self.employee_to_manager[employee] = manager
+        
+        print(self.employee_to_manager)
             
     def get_manager(self, employee,):
         return self.employee_to_manager.get(employee)
@@ -38,6 +40,8 @@ class RelationshipManager:
             return employee
         
         return self.get_top_manager(employee)
+
+rtt = RelationshipManager(relationships)
 
 # ====================================================
 # 🟡 Question 2: Counting Occurrences
