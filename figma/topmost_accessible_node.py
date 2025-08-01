@@ -104,4 +104,4 @@ if __name__ == "__main__":
 
     print("Topmost accessible nodes for user2:")
     for node in result:
-        print(f"- {node.name} ({node.type})")  # Expected: folder1         
+        print(f"- {node.name} ({node.type}), whole node: {result}")  # Expected: folder1         
