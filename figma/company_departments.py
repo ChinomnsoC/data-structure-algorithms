@@ -43,21 +43,24 @@ class CompanyDepartments:
         return self.department_to_employee.get(department, [])
     
     def get_employee_department(self, employee):
-        for dept, employees in self.department_to_employee.items():
-            if employee in employees:
-                return dept
-        return None
+        return self.employee_to_department.get(employee, [])
+        # for dept, employees in self.department_to_employee.items():
+        #     if employee in employees:
+        #         return dept
+        # return None
         
     def transfer_employee(self, employee_name, new_department):
         
         employee_department = self.get_employee_department(employee_name)
         
-        # find employee in department
+        # update employee in old department
         if employee_department:
-            # print("self.department_to_employee[dept]", self.department_to_employee[dept])
             # delete employee from department
             self.department_to_employee[employee_department].remove(employee_name)
             print("self.department_to_employee[dept]", self.department_to_employee[employee_department])
+        
+        else:
+            return f"Old department for {employee_name} not found"
         
         # write employee to new department
         if new_department not in self.department_to_employee.keys():
@@ -73,7 +76,7 @@ class CompanyDepartments:
 
 emp = CompanyDepartments(employees)
 # print(emp.get_employees("HR"))
-print(emp.transfer_employee("Diana", "Engineering"))
+print(emp.transfer_employee("Diane", "Sales"))
 # print("get_employee_department", emp.get_employee_department("Diana"))
         
 
