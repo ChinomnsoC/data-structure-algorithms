@@ -91,4 +91,37 @@ class FileSystemNavigator:
     
     # - get_folder_size(folder_path) - return total size of all files in folder
     def get_folder_size(self, folder_path):
+        folder_name = folder_path.split("/")[-1]
+        
+        # Of course, I'll first check if the folder exists in the node, 
+        # and if it has children at all, and if there are already sizes at that level. What do you think?
+        
+        if folder_name not in self.file_system_nodes:
+            print(f"{folder_name} doesn't exist in the file system node")
+            return 0
+        
+        total_size = self._internal_folder_size(folder_name)
+        
+        return total_size
+    
+    def _internal_folder_size(self, folder_name):
+        node = self.file_system_nodes[folder_name]
+        
+        if node.type != "folder":
+            return 0
+        
+        total_size = 0
+        
+        for child_name, child_data in node.children.items():
+            if child_data["type"] == "file":
+                total_size += child_data["size"]
+            
+            else:
+                total_size += self._internal_folder_size(child_name)
+        
+        return total_size
+    
+    # add_file(folder_path, filename, size) - add new file to existing folder
+    
+    def add_file(folder_path, filename, size):
         
