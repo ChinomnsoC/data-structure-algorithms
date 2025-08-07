@@ -71,6 +71,9 @@ class HierarchyManager:
             print(f"'{child_id}' has parent '{parent_id}'")
 
     def get_fewest(self, user_id):
+        # if the node is not in parent map, then its a root
+        # for all the roots, check if the user has access, 
+        # if the user doesn't, we check the children.
         minimum_access_nodes = []
         roots = []
         
@@ -94,6 +97,7 @@ class HierarchyManager:
             
     
     def _get_children(self, node):
+        print(node.uuid)
         children = []
         for child_id, parent_id in self.parent_map.items():
                 if parent_id == node.uuid:
@@ -104,20 +108,54 @@ class HierarchyManager:
     
     
 # =================== USAGE EXAMPLE ===================
-def test_with_debug():
-    # Create simple test data
-    files = [File("file1.txt", ["Alice"])]
-    folders = [Folder("Folder1", [], ["file1.txt"], ["Bob"])]
-    teams = [Team("Team1", ["Folder1"], [], ["Charlie"])]
+def test_complex_hierarchy():
+    # =================== FILES (Bottom Layer) ===================
+    files = [
+        File("report.pdf", ["Alice"]),           # In Marketing/Campaigns
+        File("budget.xlsx", ["Bob"]),            # In Marketing/Campaigns  
+        File("design.fig", ["Alice", "Bob"]),    # In Development/Frontend/Components
+        File("api.py", ["Bob"]),                 # In Development/Backend/Services
+        File("readme.txt", ["Alice"]),           # Directly in Operations folder
+        File("notes.md", ["Alice", "Bob"]),       # In Development/Backend/Services/Utils
+        File("show.txt", ["Bob"]), 
+    ]
     
-    # Initialize and run
+    # =================== FOLDERS (Multiple Layers) ===================
+    folders = [
+        # Layer 4 - Deepest subfolders
+        Folder("Components", [], ["design.fig"], ["Alice"]),
+        Folder("Services", ["Utils"], ["api.py"], []),          # No direct access
+        Folder("Utils", [], ["notes.md"], ["Bob"]),
+        Folder("Campaigns", [], ["report.pdf", "budget.xlsx"], ["Alice"]),
+        
+        # Layer 3 - Mid-level folders  
+        Folder("Frontend", ["Components"], [], ["Bob"]),
+        Folder("Backend", ["Services"], [], []),                # No direct access
+        
+        # Layer 2 - Top-level folders under team
+        Folder("Marketing", ["Campaigns"], [], []),             # No direct access
+        Folder("Development", ["Frontend", "Backend"], ["readme.txt"], ["Alice"]),  
+        Folder("Operations", [], ["show.txt"], ["Bob"])       # Folder with direct file
+    ]
+    
+    # =================== TEAMS (Root Layer) ===================
+    team = [
+        Team("CompanyRoot", ["Marketing", "Development", "Operations"], [], [])
+    ]
+    
+    # Test the hierarchy
     manager = HierarchyManager()
-    manager.init_function(teams, folders, files)
+    manager.init_function(team, folders, files)
     
     print("\n" + "="*60)
     print("TESTING get_fewest with Alice:")
     print("="*60)
     result = manager.get_fewest("Alice")
+    results = manager.get_fewest("Bob")
+    for node in result:
+        print(f"- {node.uuid}, whole node: {result}") 
+    # for node in results:
+    #     print(f"- {node.uuid}, whole node: {results}") 
 
 if __name__ == "__main__":
-    test_with_debug()
+    test_complex_hierarchy()
