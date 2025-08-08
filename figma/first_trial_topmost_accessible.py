@@ -40,8 +40,8 @@ class FileSystemManager:
                 accessible_by=node_data["accessible_by"]
             )
             
-        self.file_system_node[node.id] = node
-        self.parent_map[node.id] = node.parent_id
+            self.file_system_node[node.id] = node
+            self.parent_map[node.id] = node.parent_id
     
     # find all accessible nodes for each user
     def find_all_accessible_nodes(self, user_id):
