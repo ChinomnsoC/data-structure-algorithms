@@ -43,6 +43,8 @@ def count_connected_components(n, edges):
                             queue.append(neighbor)
                             visited_node.add(neighbor)
             connected_component_count += 1
+    
+    return connected_component_count
 
 
 def display_adj_list(adj_list):
