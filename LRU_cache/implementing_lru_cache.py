@@ -56,7 +56,7 @@ class LRUCache:
         if key in self.cache:
             node = self.cache[key]
             node.second = value
-            node.pair = [key, value]
+            node.pair[1] = value
             
             # then move key value pair to the head.
             self._remove_node(node)
