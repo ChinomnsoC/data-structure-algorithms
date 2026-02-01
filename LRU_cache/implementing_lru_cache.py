@@ -1,17 +1,15 @@
 # Definition for a Linked List node
-# class LinkedListNode:
-#     def __init__(self, pair):
-#         self.second = pair[1]
-#         self.first = pair[0]
-#         self.pair = pair
-#         self.next = None
-#         self.prev = None
+class LinkedListNode:
+    def __init__(self, pair):
+        self.second = pair[1]
+        self.first = pair[0]
+        self.pair = pair
+        self.next = None
+        self.prev = None
 
 # We will use a linkedlist of a pair of integers
 # where the first integer will be the key
 # and the second integer will be the value
-
-from linked_list import LinkedListNode
 
 class LRUCache:
     def __init__(self, capacity):
