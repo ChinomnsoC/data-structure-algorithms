@@ -84,7 +84,9 @@ def test():
     # Test 3: All isolated
     result3 = collect_connected_components(3, [])
     print(f"Test 3: Expected 3, Got {result3}")
-
+    
+    result4 = collect_connected_components(4, [[1, 2], [3, 1], [2, 3]])
+    print(f"Test 4: Expected 1, Got {result4}")
 
 if __name__ == "__main__":
     test()

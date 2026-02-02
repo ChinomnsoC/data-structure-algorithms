@@ -31,6 +31,7 @@ def numIslands(grid):
             return
         
         grid[row][col] = "0"
+        
         for dr, dc in directions:
             next_row, next_col = row + dr, col + dc
             dfs(next_row, next_col)
