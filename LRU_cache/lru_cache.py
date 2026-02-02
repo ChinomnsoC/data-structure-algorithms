@@ -85,5 +85,5 @@ class LRUCache:
         self._set_node_as_head(new_node)
         
         # update cache with new key value pair
-        self.cache[new_node] = new_node.value
+        self.cache[key] = new_node.value
         
