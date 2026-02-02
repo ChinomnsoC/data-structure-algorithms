@@ -3,6 +3,8 @@ def count_unique_pairs(nums, k):
         return 0
     left, right = 0, len(nums)-1
     counter = 0
+    # arr = [5, 6, 5, 7, 7, 8]
+    # target = 13
     
     while left < right:
         sum_of_pairs = nums[left] + nums[right]
