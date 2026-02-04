@@ -22,7 +22,7 @@ class Solution:
             for start_city, stop_city, price in flights:
                 if cost[start_city] == float("inf"):
                     continue
-                if cost[start_city] + price < cost[stop_city]:
+                if cost[start_city] + price < temp_cost[stop_city]:
                     temp_cost[stop_city] = cost[start_city] + price
             
             cost = temp_cost
