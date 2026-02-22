@@ -49,7 +49,7 @@ def detectAnomalyDays(reservationIds, checkins, checkouts):
     result = []
     # [5, 7, 8, 8, 0, 7, 8]
     for i in range(len(checkins)):    
-        for i in range(checkins[i], checkouts[i]):
+        for j in range(checkins[i], checkouts[i]):
             reservations_per_day[i] += 1
 
     # We want to detect all the dates that have a number of active reservations less than 80% of the previous 7 days average.
