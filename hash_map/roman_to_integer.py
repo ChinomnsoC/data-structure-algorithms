@@ -34,3 +34,9 @@ def romanToInt(s):
             i += 1
         
     return running_sum
+
+print(romanToInt("III") == 3)
+print(romanToInt("IV") == 4)
+print(romanToInt("IX") == 9)
+print(romanToInt("LVIII") == 58)
+print(romanToInt("MCMXCIV") == 1994)
