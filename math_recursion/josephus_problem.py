@@ -6,6 +6,7 @@ def josephus(n: int, k: int) -> int:
             return people[0]
 
         position_to_be_del = (current_position + (k - 1) ) % len(people)
+        
         if position_to_be_del < len(people) - 1:
             next_person = people[position_to_be_del + 1]
         else:
