@@ -1,0 +1,41 @@
+def tallest_tree_root(forest: dict) -> int:
+    if not forest:
+        return 0
+
+    # get the childrend and parents ina set
+    # build adj list
+    # dfs recursion
+    # forest is {child: parent}
+    children = set(forest.keys())
+    all_nodes = set(forest.keys()) | set(forest.values())
+    roots = all_nodes - children
+
+    adj_list = {}
+
+    for child, parent in forest.items():
+        if parent not in adj_list:
+            adj_list[parent] = []
+        adj_list[parent].append(child)
+
+    def dfs_height(node, adj_list):
+        if node not in adj_list:
+            return 1
+        return 1 + max(dfs_height(child, adj_list) for child in adj_list[node])
+
+    
+    
+    
+
+
+def do_tests_pass() -> bool:
+    assert tallest_tree_root({2: 3, 3: 5, 4: 5, 8: 9}) == 5
+    assert tallest_tree_root({1: 2, 3: 4}) == 2  # tie, return smaller
+    assert tallest_tree_root({1: 2, 3: 2, 4: 2}) == 2
+    return True
+
+
+if __name__ == "__main__":
+    if do_tests_pass():
+        print("All tests pass")
+    else:
+        print("Tests fail")
