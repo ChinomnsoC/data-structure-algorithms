@@ -25,7 +25,6 @@ def eliminate_substring_variation(s: str, target: str) -> str:
             # call stack.pop tgt_length number of times
             for _ in range(tgt_length):
                 stack.pop()
-            pass
     result = "".join(stack)
     
     return result if result else "-1"
