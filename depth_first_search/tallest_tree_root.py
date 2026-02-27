@@ -22,9 +22,19 @@ def tallest_tree_root(forest: dict) -> int:
             return 1
         return 1 + max(dfs_height(child, adj_list) for child in adj_list[node])
 
-    
-    
-    
+    roots_dictionary = {}
+    for root in roots:
+        height = dfs_height(root, adj_list)
+        roots_dictionary[root] = height
+
+    max_height = max(roots_dictionary.values())
+
+    ties = []
+    for root, height in roots_dictionary.items():
+        if height == max_height:
+            ties.append(root)
+
+    return min(ties)
 
 
 def do_tests_pass() -> bool:
