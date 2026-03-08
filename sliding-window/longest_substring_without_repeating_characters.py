@@ -18,6 +18,20 @@ def find_longest_substring(input_str):
     print(max_frequency)
     return max_frequency
 
+def do_tests_pass() -> bool:
+    assert find_longest_substring("abcabcbb") == 3  # "abc"
+    assert find_longest_substring("bbbbb") == 1     # "b"
+    assert find_longest_substring("pwwkew") == 3    # "wke"
+    assert find_longest_substring("") == 0
+    assert find_longest_substring("abcdef") == 6    # no repeats
+    return True
+
+if __name__ == "__main__":
+    if do_tests_pass():
+        print("All tests pass")
+    else:
+        print("Tests fail")
+
 # from collections import defaultdict
 
 # def find_longest_substring(input_str):
