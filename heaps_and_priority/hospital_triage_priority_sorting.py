@@ -16,18 +16,20 @@ def treatment_order(severities: list, k: int) -> int:
     if not severities or k >= len(severities):
         return 0
 
-    severities_to_position_pair_list = []
-
-    for i in range(len(severities)):
-        severities_to_position_pair_list.append((severities[i], i))
-
-
-
-    severities_to_position_pair_list.sort(key=lambda x: (-x[0], x[1]))
+    severities_to_position_pair_list = sorted(enumerate(severities), key=lambda x: (-x[1], x[0]))
     
-    for i, pair in enumerate(severities_to_position_pair_list):
-        if pair[1] == k:
-            return i + 1
+    return next(i + 1 for i, (indx, _) in enumerate(severities_to_position_pair_list) if indx == k)
+
+    # for i in range(len(severities)):
+    #     severities_to_position_pair_list.append((severities[i], i))
+
+
+
+    # severities_to_position_pair_list.sort(key=lambda x: (-x[0], x[1]))
+    
+    # for i, pair in enumerate(severities_to_position_pair_list):
+    #     if pair[1] == k:
+    #         return i + 1
 
 
 def do_tests_pass() -> bool:
