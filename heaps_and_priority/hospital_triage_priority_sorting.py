@@ -30,6 +30,8 @@ def treatment_order(severities: list, k: int) -> int:
     # for i, pair in enumerate(severities_to_position_pair_list):
     #     if pair[1] == k:
     #         return i + 1
+    
+    
 
 
 def do_tests_pass() -> bool:

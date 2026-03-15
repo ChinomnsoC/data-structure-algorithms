@@ -1,3 +1,5 @@
+# Given a string, find the length of the longest substring without repeating characters.
+
 def find_longest_substring(input_str):
     if len(set(input_str)) == 1: #if all characters are the same in the input list, return 1
         return 1
@@ -14,7 +16,7 @@ def find_longest_substring(input_str):
             
         character_index_map[char] = right
         max_frequency = max(max_frequency, right - left + 1)       
-        
+
     print(max_frequency)
     return max_frequency
 
