@@ -13,6 +13,9 @@
 
 # e.g. [[1,5], [8,2], [4,5] [4, 0]]
 # For 2 candidates above, candidate0 can go to NY and candidate1 can go to SFO, which result in a total cost of 3
+
+# Time: O(n log n) — dominated by the sort.
+# Space: O(1) — sorting in place.
 def maximize_flight_costs(invites_list):
     n = len(invites_list)
     
