@@ -77,3 +77,19 @@ def two_sum(nums, target):
 
 
 print(two_sum(nums = [3, 2, 4], target = 6))
+
+
+# Linked List Cycle II (LC 142)
+def linked_list_cycle_ii(head):
+    visited = set()
+    
+    
+    while head is not None:
+        if head in visited:
+            return head
+        
+        visited.add(head)
+        
+        head = head.next
+        
+    return None
