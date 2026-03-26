@@ -3,7 +3,8 @@
 
 # When you exceed k distinct characters, you don't reset both pointers. 
 # You shrink from the left one step at a time until you're back to k distinct characters. Right keeps moving forward.
-# Use a HashMap to track character frequencies in the window — when a character's count drops to 0, remove it from the map. The number of keys in the map = number of distinct characters.
+# Use a HashMap to track character frequencies in the window — when a character's count drops to 0, remove it from the map. 
+# The number of keys in the map = number of distinct characters.
 
 
 def longest_substring_k_distinct(s: str, k: int) -> int:
