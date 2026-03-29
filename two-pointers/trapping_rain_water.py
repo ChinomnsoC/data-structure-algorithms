@@ -15,7 +15,7 @@ class Solution:
 
             max_height_right = 0
             for right_location in range(i + 1, height_length):
-                max_height_right = max(height_length[right_location], max_height_right)
+                max_height_right = max(height[right_location], max_height_right)
 
             shorter_wall = min(max_height_left, max_height_right)
             if height[i] < shorter_wall:
@@ -47,3 +47,6 @@ class Solution:
                 total_trapped += shorter_wall - height[i]
 
         return total_trapped
+
+# The precompute method is correct and clean. O(n) time, O(n) space.
+# Complexity of brute force: O(n²) time, O(1) space.
