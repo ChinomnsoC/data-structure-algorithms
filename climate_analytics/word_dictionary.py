@@ -8,6 +8,7 @@
 
 # Implement a class `AutoComplete` with:
 
+
 # **Part 1:**
 # - `__init__(self, trainingData, badWords)` — initialise the model
 # - `getBestWord(self, inputString)` — return the most frequent next word for a given input word, or empty string if none exists
@@ -15,6 +16,14 @@
 # getBestWord("I") → "am"  # "am" follows "I" twice, "like" once
 # getBestWord("Green") → "Eggs"
 # getBestWord("xyz") → ""
+
+# Part 2:
+
+# updateTrainingData(self, newTrainingData) — update model with new sentences
+
+# Part 3:
+
+# Filter out bad words — if either word in a pair appears in badWords, ignore that pair
 
 from collections import defaultdict, Counter
 
@@ -57,6 +66,8 @@ class Autocomplete():
                 
                 if current_word not in self.badWords and next_word not in self.badWords:
                     self.data_map[current_word][next_word] += 1
+        
+        print(self.data_map)
 
 autocomplete = Autocomplete(trainingData=training_data, badWords=["ugly"])
 

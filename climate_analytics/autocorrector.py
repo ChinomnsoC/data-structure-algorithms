@@ -1,7 +1,9 @@
 # **Auto Corrector (IDB)**
 
 # Design a data structure initialised with a dictionary of words. 
-# Given a search word, if it exists return it. If not, check if you can change **exactly one character** to match any word in the dictionary. If yes, return the corrected word. If no match found, return the original word.
+# Given a search word, if it exists return it. If not, check if you can change 
+# **exactly one character** to match any word in the dictionary. If yes, return the corrected word. 
+# If no match found, return the original word.
 
 # ```python
 dictionary = ["cat", "bat", "hat", "car"]
@@ -43,3 +45,35 @@ auto_corrector = AutoCorrector(dictionary)
 print(auto_corrector.correct("avuuu"))
 print(auto_corrector.correct("tab"))
 print(auto_corrector.correct("bad"))
+
+
+class TrieNode:
+    def __init__(self):
+        self.children_dict = {}
+        self.is_end = False
+        
+class AutoCorrectorTrie:
+    def __init__(self):
+        self.root = TrieNode()
+    
+    def insert(self, word):
+        node = self.root
+        
+        for char in word:
+            if char not in node.children_dict:
+                node.children_dict[char] = TrieNode()
+                
+            node = node.children_dict[char]
+        
+        node.is_end = True
+    
+    def search(self, word):
+        node = self.root
+        
+        for char in word:
+            if char not in node.children_dict:
+                return False
+            
+            node = node.children_dict[char]
+        
+        return node.is_end
