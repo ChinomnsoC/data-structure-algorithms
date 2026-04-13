@@ -9,6 +9,9 @@ def countShips(bottomLeft, topRight) -> int:
     # topRight = (x2, y2)
     x1, y1 = bottomLeft
     x2, y2 = topRight
+    
+    if x1 > x2 or y1 > y2:
+        return 0
 
     if not hasShips(bottomLeft, topRight):
         return 0

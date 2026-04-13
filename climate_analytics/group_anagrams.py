@@ -17,5 +17,5 @@ def groupAnagrams(strs):
         
         anagrams_map[key].append(word)
     
+    
     return list(anagrams_map.values())
-            

@@ -24,13 +24,13 @@ class UndergroundSystem:
 
         
 
-    def checkOut(self, id, stationName, t):
+    def checkOut(self, id, checkOutStationName, t):
         # route_map = {("Leyton", "Waterloo"): [total_time, count]}
         
         checkInStation, checkInTime = self.check_in_map[id]
         del self.check_in_map[id]
         
-        key = (checkInStation, stationName)
+        key = (checkInStation, checkOutStationName)
         total_time = t - checkInTime
         
         if key in self.route_map:
